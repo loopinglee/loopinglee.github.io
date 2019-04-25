@@ -17,10 +17,6 @@ img {
   padding-top: 58px;
   margin-top: -58px;
 }
-#header {
-  position: fixed;
-  z-index: 10;
-}
 .luxbar-item {
   line-height: 20px;
 }
@@ -28,7 +24,7 @@ img {
     <script type="text/javascript" src=""></script>
   </head>
   <body>
-    <div id="header" class="luxbar luxbar-static">
+    <div id="header" class="luxbar luxbar-fixed">
       <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
       <div class="luxbar-menu luxbar-menu-right luxbar-menu-dark">
         <ul class="luxbar-navigation">
@@ -79,5 +75,11 @@ img {
       <img id="illustration" src="28_illustration.jpg" />
       <img src="29_illustration.jpg" />
     </div>
+    <script>
+      let links = document.querySelectorAll('#header a');
+      links.forEach(it => it.onclick = function() {
+        document.querySelector('#luxbar-checkbox').checked = false;
+      });
+    </script>
   </body>
 </html>
